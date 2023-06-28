@@ -6,7 +6,7 @@ import axios from "axios";
 const appid = ""; // 你所申请的百度翻译appid
 const salt = ""; // 随机数
 const miyao = ""; // 你所根据百度翻译api指引所生成的密钥
-const translatedTextPath = path.resolve(__dirname, "./en-US.json");
+const translatedTextPath = path.resolve(__dirname, "json文件路径");
 
 async function translateText(path: string): Promise<void> {
   const source = fs.readFileSync(path);
