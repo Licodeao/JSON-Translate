@@ -1,14 +1,21 @@
 const fs = require("fs");
 const path = require("path");
-const crypto = require("crypto");
-import axios from "axios";
+const cryptos = require("crypto");
+const axios = require("axios");
 
-const appid = ""; // 你所申请的百度翻译appid
-const salt = ""; // 随机数
-const miyao = ""; // 你所根据百度翻译api指引所生成的密钥
-const translatedTextPath = path.resolve(__dirname, "json文件路径");
-
-async function translateText(path: string): Promise<void> {
+/**
+ *
+ * @param path: json文件路径
+ * @param appid: 你所申请的百度翻译appid
+ * @param salt: 随机数
+ * @param miyao: 你所根据百度翻译api指引生成的密钥
+ */
+export async function translateText(
+  path: string,
+  appid: string,
+  salt: string,
+  miyao: string
+): Promise<void> {
   const source = fs.readFileSync(path);
   const sourceObj = JSON.parse(source);
   // 存储翻译结果
@@ -22,7 +29,7 @@ async function translateText(path: string): Promise<void> {
       let dst: string | undefined;
       while (!dst) {
         const sign = `${appid}${key}${salt}${miyao}`;
-        const md5 = crypto.createHash("md5");
+        const md5 = cryptos.createHash("md5");
         const hash = md5.update(sign).digest("hex");
         const res = await axios.get(
           "https://fanyi-api.baidu.com/api/trans/vip/translate",
@@ -39,7 +46,7 @@ async function translateText(path: string): Promise<void> {
         );
         [dst] = res.data.trans_result || [];
         if (!dst) {
-          console.log(`当前值：${key}为undefined, 重新翻译中...`);
+          console.log(`当前中文字符：${key}为undefined, 重新翻译中...`);
           await new Promise((resolve) => setTimeout(resolve, 1000));
         }
       }
@@ -63,5 +70,3 @@ async function translateText(path: string): Promise<void> {
   fs.writeFileSync(translatedTextPath, newSource);
   console.log("所有中文已翻译完成...");
 }
-
-translateText(translatedTextPath);
