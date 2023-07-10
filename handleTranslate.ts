@@ -67,6 +67,9 @@ export async function translateText(
     null,
     2
   );
-  fs.writeFileSync(translatedTextPath, newSource);
+  fs.writeFileSync(path, newSource);
   console.log("所有中文已翻译完成...");
 }
+
+// Just Uncomment the following code and pass in the corresponding parameters
+// translateText(path, appid, salt, miyao);
