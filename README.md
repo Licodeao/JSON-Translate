@@ -35,6 +35,9 @@
 
 - npm install 安装依赖
 - 根据百度翻译官网步骤，获取 appid、salt，进而得到密钥进行翻译请求
+- 将package.json中的module设置为commonjs
+  - 或将export关键字删除
+
 - 在文件中引入 translateText 方法，并传入相应参数即可
 
 ## Tips
