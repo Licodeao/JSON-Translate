@@ -115,7 +115,7 @@ async function translateText(
               console.log(`当前中文字符：${key}为undefined, 重新翻译中...`);
               await new Promise((resolve) => setTimeout(resolve, timeout));
             }
-          } catch (error) {
+          } catch (error: any) {
             if (error.response && error.response.data) {
               console.log(error.response.data);
             } else {
