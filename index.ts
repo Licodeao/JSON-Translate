@@ -134,8 +134,8 @@ async function translateText(
           }
         }
         console.log(key, dst);
-        translations.push([key, dst]);
-        cache[key] = dst;
+        translations.push([key, dst as string]);
+        cache[key] = dst as string;
       }
     }
     const orderedTranslations = translations.reduce(
