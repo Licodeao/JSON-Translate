@@ -15,13 +15,17 @@ function truncate(q: string) {
  * @param appSecret 百度翻译API的密钥 / 有道云翻译API的appSecret
  * @param salt 随机数
  * @param timeout 翻译间隔时间
+ * @param sourceLang 源语言
+ * @param targetLang 目标语言
  */
 async function translateText(
   path: string,
   appid: string,
   appSecret: string,
   salt: string | number = "1435660288",
-  timeout: number
+  timeout: number,
+  sourceLang: string,
+  targetLang: string
 ): Promise<void> {
   if (appid.length === 17) {
     // 使用百度API
@@ -45,8 +49,8 @@ async function translateText(
             {
               params: {
                 q: key,
-                from: "zh",
-                to: "en",
+                from: sourceLang,
+                to: targetLang,
                 appid,
                 salt,
                 sign: hash,
@@ -103,8 +107,8 @@ async function translateText(
                 q: key,
                 appKey: appid,
                 salt: new Date().getTime(),
-                from: "zh-CHS",
-                to: "en",
+                from: sourceLang,
+                to: targetLang,
                 sign: hash,
                 signType: "v3",
                 curtime: currentTime,
@@ -115,7 +119,7 @@ async function translateText(
               console.log(`当前中文字符：${key}为undefined, 重新翻译中...`);
               await new Promise((resolve) => setTimeout(resolve, timeout));
             }
-          } catch (error: any) {
+          } catch (error) {
             if (error.response && error.response.data) {
               console.log(error.response.data);
             } else {
