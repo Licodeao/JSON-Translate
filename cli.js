@@ -37,30 +37,87 @@ async function handleCLI() {
 
   const pathAnswer = await input.default({
     message: "Input your translate path",
+    validate: (value) => {
+      if (value.length === 0) {
+        return "Please input your translate path";
+      } else {
+        return true;
+      }
+    },
   });
 
   const appIdAnswer = await input.default({
     message: "Input your appId",
+    validate: (value) => {
+      if (value.length === 0) {
+        return "Please input your appId";
+      } else {
+        return true;
+      }
+    },
   });
 
   const appSercetAnswer = await input.default({
     message: "Input your appSercet",
+    validate: (value) => {
+      if (value.length === 0) {
+        return "Please input your appSercet";
+      } else {
+        return true;
+      }
+    },
   });
 
   const saltAnswer = await input.default({
     message: "Input your salt",
+    validate: (value) => {
+      if (value.length === 0 || !/^\d+$/.test(value)) {
+        return "Please input correct salt";
+      } else {
+        return true;
+      }
+    },
   });
 
   const timeoutAnswer = await input.default({
     message: "Input your timeout",
+    validate: (value) => {
+      if (value.length === 0 || !/^\d+$/.test(value)) {
+        return "Please input correct timeout";
+      } else {
+        return true;
+      }
+    },
   });
 
   const sourceLangAnswer = await input.default({
     message: "Input your sourceLang",
+    validate: (value) => {
+      if (
+        value.length === 0 ||
+        typeof value !== "string" ||
+        /^\d+$/.test(value)
+      ) {
+        return "Please input correct sourceLang";
+      } else {
+        return true;
+      }
+    },
   });
 
   const targetLangAnswer = await input.default({
     message: "Input your targetLang",
+    validate: (value) => {
+      if (
+        value.length === 0 ||
+        typeof value !== "string" ||
+        /^\d+$/.test(value)
+      ) {
+        return "Please input correct targetLang";
+      } else {
+        return true;
+      }
+    },
   });
 
   if (!selectAnswer) {
