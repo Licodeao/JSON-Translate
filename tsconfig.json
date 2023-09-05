@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
-    "noImplicitAny": false
-  }
+    "module": "CommonJS",
+    "target": "ES6",
+    "noImplicitAny": false,
+    "outDir": "dist"
+  },
+  "include": ["src/**/*"]
 }
