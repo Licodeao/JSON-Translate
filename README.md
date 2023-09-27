@@ -2,7 +2,7 @@
 
 A tool for improving international translation efficiency
 
-> Translations
+> Document Translations
 
 - en [English](readme/README.en_us.md)
 - zh_CN [简体中文](readme/README.zh_cn.md)
@@ -22,4 +22,3 @@ $ json-translate
 | Node Version |
 | ------------ |
 | >= v16.0.0   |
-

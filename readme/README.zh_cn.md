@@ -33,8 +33,14 @@
 # npm
 $ npm install i18n-json-translate
 
-# Usage
+# 使用(如果不能使用该命令，你可以在package.json中配置一下)
 $ json-translate
+
+# package.json
+{
+  "i18n-json-translate": "json-translate"
+}
+$ npm run i18n-json-translate
 ```
 
 | 模式                  | 描述           |

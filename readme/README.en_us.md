@@ -33,8 +33,14 @@ For use in the following scenarios：
 # npm
 $ npm install i18n-json-translate
 
-# Usage
+# Usage(If you can't use this command, you can configure in the package.json file, as following)
 $ json-translate
+
+# package.json
+{
+  "i18n-json-translate": "json-translate"
+}
+$ npm run i18n-json-translate
 ```
 
 | Mode                  | Description                  |
