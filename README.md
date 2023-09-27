@@ -16,3 +16,10 @@ $ npm install i18n-json-translate
 # Usage
 $ json-translate
 ```
+
+> Tip
+
+| Node Version |
+| ------------ |
+| >= v16.0.0   |
+
