@@ -1,7 +1,12 @@
 {
   "name": "i18n-json-translate",
-  "version": "1.0.6",
+  "version": "1.0.8",
   "description": "A Tool for translating JSON files in i18n",
+  "keywords": [
+    "i18n",
+    "translate",
+    "json"
+  ],
   "main": "cli.js",
   "bin": {
     "json-translate": "cli.js"

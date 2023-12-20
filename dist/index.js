@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.pathModule = exports.cryptoModule = exports.axios = exports.fs = void 0;
+const fs = require("fs");
+exports.fs = fs;
+const axios = require("axios");
+exports.axios = axios;
+const cryptoModule = require("crypto");
+exports.cryptoModule = cryptoModule;
+const pathModule = require("path");
+exports.pathModule = pathModule;
