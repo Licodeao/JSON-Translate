@@ -21,4 +21,4 @@ $ json-translate
 
 | Node Version |
 | ------------ |
-| >= v14.0.0   |
+| >= v16.0.0   |
