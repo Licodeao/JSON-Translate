@@ -1,6 +1,6 @@
 {
   "name": "i18n-json-translate",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "A Tool for translating JSON files in i18n",
   "keywords": [
     "i18n",
@@ -11,17 +11,15 @@
   "bin": {
     "json-translate": "cli.js"
   },
-  "author": "Licodeao",
+  "author": "Licodeao <Licodeao@licodeao.top>",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
     "@types/node": "^20.3.2"
   },
   "dependencies": {
-    "@inquirer/input": "^1.2.9",
-    "@inquirer/select": "^1.2.9",
-    "axios": "^1.2.1",
-    "inquirer": "^9.2.10"
+    "@inquirer/prompts": "^3.3.0",
+    "axios": "^1.2.1"
   },
   "scripts": {
     "start": "tsc && node cli.js"
