@@ -1,5 +1,7 @@
 # i18n-json-translate
 
+![Version](https://img.shields.io/npm/v/i18n-json-translate.svg) ![NPM Downloads](https://img.shields.io/npm/dt/i18n-json-translate.svg)
+
 A tool for improving international translation efficiency
 
 <img src="https://typora-licodeao.oss-cn-guangzhou.aliyuncs.com/typoraImg/image-20230906002748145.png" width="100%" />
