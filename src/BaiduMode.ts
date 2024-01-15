@@ -1,5 +1,6 @@
 import { fs, cryptoModule, axios } from "./index";
 import type { ModeOptions } from "./types";
+import { BaiduErrorType } from "./types";
 
 export async function BaiduTranslator(options: ModeOptions) {
   const {
@@ -41,6 +42,40 @@ export async function BaiduTranslator(options: ModeOptions) {
             },
           }
         );
+
+        if (res.data.error_code) {
+          switch (res.data.error_code) {
+            case 52000:
+              throw new Error(BaiduErrorType.SUCCESS);
+            case 52001:
+              throw new Error(BaiduErrorType.TIMEOUT);
+            case 52002:
+              throw new Error(BaiduErrorType.SYSTEM_ERROR);
+            case 52003:
+              throw new Error(BaiduErrorType.UNAUTHORIZED_USER);
+            case 54000:
+              throw new Error(BaiduErrorType.PARAMETER_ERROR);
+            case 54001:
+              throw new Error(BaiduErrorType.SIGN_ERROR);
+            case 54003:
+              throw new Error(BaiduErrorType.ACCESS_FREQUENCY);
+            case 54004:
+              throw new Error(BaiduErrorType.ACCOUNT_BALANCE);
+            case 54005:
+              throw new Error(BaiduErrorType.QUERY_TOO_LONG);
+            case 58000:
+              throw new Error(BaiduErrorType.INVAID_IP);
+            case 58001:
+              throw new Error(BaiduErrorType.LANG_NOT_SUPPORT);
+            case 58002:
+              throw new Error(BaiduErrorType.SERVICE_NOT_SUPPORT);
+            case 90107:
+              throw new Error(BaiduErrorType.PERMISSION_NOT_SUPPORT);
+            default:
+              break;
+          }
+        }
+
         [dst] = res.data.trans_result || [];
         if (!dst) {
           console.log(`当前中文字符：${key}为undefined, 重新翻译中...`);
