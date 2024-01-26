@@ -27,7 +27,7 @@ export function handleFile(params: HandleFileOptions) {
           if (err) {
             throw err;
           }
-          console.log("done");
+          console.log("work done!");
         }
       );
     }

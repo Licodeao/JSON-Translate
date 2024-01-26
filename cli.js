@@ -5,7 +5,6 @@ const { prompt } = require("./dist/switchPrompt.js");
 
 async function handleCLI() {
   const selectAnswer = await createSelectAnswer();
-
   if (selectAnswer === "exit") {
     let exitAnswer = await createExitAnswer();
     while (exitAnswer === "no") {

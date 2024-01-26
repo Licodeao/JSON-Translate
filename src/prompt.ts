@@ -15,9 +15,14 @@ async function createSelectAnswer() {
         description: "Use Netease Youdao Translator Mode",
       },
       {
-        name: "Slef-copy(ZH-CN.json)",
-        value: "slef-copy",
-        description: "Slef-copy zh-cn.json Mode",
+        name: "self-copy",
+        value: "self-copy",
+        description: "Self-copy zh-cn.json Mode",
+      },
+      {
+        name: "ChatGPT",
+        value: "ChatGPT",
+        description: "Use gpt-4/gpt-4 turbo/gpt-3.5 turbo",
       },
       {
         name: "Exit",
@@ -25,11 +30,6 @@ async function createSelectAnswer() {
         description: "Exit the CLI",
       },
       new Separator(),
-      {
-        name: "ChatGPT",
-        value: "ChatGPT",
-        disabled: "(ChatGPT is on road...)",
-      },
     ],
   });
   return instance;
@@ -160,6 +160,20 @@ async function createExitAnswer() {
   return instance;
 }
 
+async function createChatGPTAnswer() {
+  const instance = await input({
+    message: "Input your ChatGPT API Key",
+    validate: (value) => {
+      if (value.length === 0) {
+        return "Please input your ChatGPT API Key";
+      } else {
+        return true;
+      }
+    },
+  });
+  return instance;
+}
+
 export {
   createSelectAnswer,
   createPathAnswer,
@@ -170,4 +184,5 @@ export {
   createSourceLangAnswer,
   createTargetLangAnswer,
   createExitAnswer,
+  createChatGPTAnswer,
 };

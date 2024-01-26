@@ -27,3 +27,14 @@ export enum BaiduErrorType {
   SERVICE_NOT_SUPPORT = `STATUS_CODE: 58002, MESSAGE: SERVICE_NOT_SUPPORT`,
   PERMISSION_NOT_SUPPORT = `STATUS_CODE: 90107, MESSAGE: PERMISSION_NOT_SUPPORT`,
 }
+
+export enum ChatGPT_API {
+  CHATGPT_API = "https://api.openai.com/v1/chat/completions",
+}
+
+export interface ChatGPTOptions {
+  sourceLang: string;
+  targetLang: string;
+  path: string;
+  API_Key: string;
+}

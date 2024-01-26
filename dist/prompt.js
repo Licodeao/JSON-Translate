@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createExitAnswer = exports.createTargetLangAnswer = exports.createSourceLangAnswer = exports.createTimeoutAnswer = exports.createSaltAnswer = exports.createAppSercetAnswer = exports.createAppIdAnswer = exports.createPathAnswer = exports.createSelectAnswer = void 0;
+exports.createChatGPTAnswer = exports.createExitAnswer = exports.createTargetLangAnswer = exports.createSourceLangAnswer = exports.createTimeoutAnswer = exports.createSaltAnswer = exports.createAppSercetAnswer = exports.createAppIdAnswer = exports.createPathAnswer = exports.createSelectAnswer = void 0;
 const { input, select, Separator } = require("@inquirer/prompts");
 function createSelectAnswer() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -27,9 +27,14 @@ function createSelectAnswer() {
                     description: "Use Netease Youdao Translator Mode",
                 },
                 {
-                    name: "Slef-copy(ZH-CN.json)",
-                    value: "slef-copy",
-                    description: "Slef-copy zh-cn.json Mode",
+                    name: "self-copy",
+                    value: "self-copy",
+                    description: "Self-copy zh-cn.json Mode",
+                },
+                {
+                    name: "ChatGPT",
+                    value: "ChatGPT",
+                    description: "Use gpt-4/gpt-4 turbo/gpt-3.5 turbo",
                 },
                 {
                     name: "Exit",
@@ -37,11 +42,6 @@ function createSelectAnswer() {
                     description: "Exit the CLI",
                 },
                 new Separator(),
-                {
-                    name: "ChatGPT",
-                    value: "ChatGPT",
-                    disabled: "(ChatGPT is on road...)",
-                },
             ],
         });
         return instance;
@@ -192,3 +192,20 @@ function createExitAnswer() {
     });
 }
 exports.createExitAnswer = createExitAnswer;
+function createChatGPTAnswer() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const instance = yield input({
+            message: "Input your ChatGPT API Key",
+            validate: (value) => {
+                if (value.length === 0) {
+                    return "Please input your ChatGPT API Key";
+                }
+                else {
+                    return true;
+                }
+            },
+        });
+        return instance;
+    });
+}
+exports.createChatGPTAnswer = createChatGPTAnswer;

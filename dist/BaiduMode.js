@@ -11,6 +11,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BaiduTranslator = void 0;
 const index_1 = require("./index");
+const types_1 = require("./types");
+/**
+ * @param path 需要翻译的json文件
+ * @param appid 百度翻译API的key / 有道云翻译API的appKey
+ * @param appSecret 百度翻译API的密钥 / 有道云翻译API的appSecret
+ * @param salt 随机数
+ * @param timeout 翻译间隔时间
+ * @param sourceLang 源语言
+ * @param targetLang 目标语言
+ */
 function BaiduTranslator(options) {
     return __awaiter(this, void 0, void 0, function* () {
         const { path, appid, appSecret, salt = "1435660288", timeout, sourceLang, targetLang, } = options;
@@ -41,6 +51,38 @@ function BaiduTranslator(options) {
                             sign: hash,
                         },
                     });
+                    if (res.data.error_code) {
+                        switch (res.data.error_code) {
+                            case 52000:
+                                throw new Error(types_1.BaiduErrorType.SUCCESS);
+                            case 52001:
+                                throw new Error(types_1.BaiduErrorType.TIMEOUT);
+                            case 52002:
+                                throw new Error(types_1.BaiduErrorType.SYSTEM_ERROR);
+                            case 52003:
+                                throw new Error(types_1.BaiduErrorType.UNAUTHORIZED_USER);
+                            case 54000:
+                                throw new Error(types_1.BaiduErrorType.PARAMETER_ERROR);
+                            case 54001:
+                                throw new Error(types_1.BaiduErrorType.SIGN_ERROR);
+                            case 54003:
+                                throw new Error(types_1.BaiduErrorType.ACCESS_FREQUENCY);
+                            case 54004:
+                                throw new Error(types_1.BaiduErrorType.ACCOUNT_BALANCE);
+                            case 54005:
+                                throw new Error(types_1.BaiduErrorType.QUERY_TOO_LONG);
+                            case 58000:
+                                throw new Error(types_1.BaiduErrorType.INVAID_IP);
+                            case 58001:
+                                throw new Error(types_1.BaiduErrorType.LANG_NOT_SUPPORT);
+                            case 58002:
+                                throw new Error(types_1.BaiduErrorType.SERVICE_NOT_SUPPORT);
+                            case 90107:
+                                throw new Error(types_1.BaiduErrorType.PERMISSION_NOT_SUPPORT);
+                            default:
+                                break;
+                        }
+                    }
                     [dst] = res.data.trans_result || [];
                     if (!dst) {
                         console.log(`当前中文字符：${key}为undefined, 重新翻译中...`);

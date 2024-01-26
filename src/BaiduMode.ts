@@ -2,6 +2,15 @@ import { fs, cryptoModule, axios } from "./index";
 import type { ModeOptions } from "./types";
 import { BaiduErrorType } from "./types";
 
+/**
+ * @param path 需要翻译的json文件
+ * @param appid 百度翻译API的key / 有道云翻译API的appKey
+ * @param appSecret 百度翻译API的密钥 / 有道云翻译API的appSecret
+ * @param salt 随机数
+ * @param timeout 翻译间隔时间
+ * @param sourceLang 源语言
+ * @param targetLang 目标语言
+ */
 export async function BaiduTranslator(options: ModeOptions) {
   const {
     path,
@@ -78,11 +87,11 @@ export async function BaiduTranslator(options: ModeOptions) {
 
         [dst] = res.data.trans_result || [];
         if (!dst) {
-          console.log(`当前中文字符：${key}为undefined, 重新翻译中...`);
+          console.log(`当前字符：${key} 为undefined, 重新翻译中...`);
           await new Promise((resolve) => setTimeout(resolve, timeout));
         }
       }
-      console.log(key, dst);
+      console.log(`源Key: ${key}, 被翻译为: ${dst}`);
       translations.push([key, (dst as any).dst]);
       cache[key] = (dst as any).dst;
     }
@@ -100,5 +109,5 @@ export async function BaiduTranslator(options: ModeOptions) {
     2
   );
   fs.writeFileSync(path, newSource);
-  console.log("所有中文已翻译完成...");
+  console.log("所有语言数据已翻译完成...");
 }

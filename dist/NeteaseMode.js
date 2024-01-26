@@ -17,6 +17,15 @@ function truncate(q) {
         return q;
     return q.substring(0, 10) + len + q.substring(len - 10, len);
 }
+/**
+ * @param path 需要翻译的json文件
+ * @param appid 百度翻译API的key / 有道云翻译API的appKey
+ * @param appSecret 百度翻译API的密钥 / 有道云翻译API的appSecret
+ * @param salt 随机数
+ * @param timeout 翻译间隔时间
+ * @param sourceLang 源语言
+ * @param targetLang 目标语言
+ */
 function NeteaseTranslator(options) {
     return __awaiter(this, void 0, void 0, function* () {
         const { path, appid, appSecret, salt = "1435660288", timeout, sourceLang, targetLang, } = options;
