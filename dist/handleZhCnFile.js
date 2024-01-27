@@ -18,7 +18,7 @@ function handleFile(params) {
             if (err) {
                 throw err;
             }
-            console.log("done");
+            console.log("work done!");
         });
     });
 }

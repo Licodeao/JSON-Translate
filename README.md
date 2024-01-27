@@ -1,17 +1,14 @@
 # i18n-json-translate
 
-A tool for improving international translation efficiency
+<p align="center">English | <a href="./READNE_zh.md">简体中文</a></p>
 
-<img src="https://typora-licodeao.oss-cn-guangzhou.aliyuncs.com/typoraImg/image-20230906002748145.png" width="100%" />
+A tool for improving international translation efficiency, supports translation into any language you want.
 
-<img src="https://typora-licodeao.oss-cn-guangzhou.aliyuncs.com/typoraImg/image-20230628232354634.png" width="100%" />
+<img src="https://typora-licodeao.oss-cn-guangzhou.aliyuncs.com/typoraImg/%E6%9C%AA%E5%91%BD%E5%90%8D%206.png" width="100%" />
 
-> Document Translations
+<img src="https://typora-licodeao.oss-cn-guangzhou.aliyuncs.com/typoraImg/%E6%9C%AA%E5%91%BD%E5%90%8D%207.png" width="100%" />
 
-- en [English](readme/README.en_us.md)
-- zh_CN [简体中文](readme/README.zh_cn.md)
-
-> Installation
+## 📦 Installation
 
 ```bash
 # npm
@@ -21,8 +18,30 @@ $ npm install i18n-json-translate
 $ json-translate
 ```
 
-> Tip
+## 🌈 Usage Scenery
+
+For use in the following scenarios：
+
+> Use the translation result of key as its value
+
+```json
+{
+  "你好": "",
+  "苹果": ""
+}
+```
+
+## ⭐ Integration support
+
+| manufacturers            | condition                                        |
+| ------------------------ | ------------------------------------------------ |
+| Baidu translate          | Sign up and according to developer documentation |
+| Netease Youdao translate | Sign up and according to developer documentation |
+| ChatGPT                  | Need API Key                                     |
+
+## 📌 Tip
 
 | Node Version |
 | ------------ |
 | >= v16.0.0   |
+

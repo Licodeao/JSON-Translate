@@ -36,10 +36,10 @@ function ChatGPT_Translator(options) {
                     });
                     dst = completion.choices[0].text.replace(/\n/g, "") || "";
                     if (!dst) {
-                        console.log(`当前中文字符：${key}为undefined, 重新翻译中...`);
+                        console.log(`当前字符：${key} 为undefined, 重新翻译中...`);
                         yield new Promise((resolve) => setTimeout(resolve, 2000));
                     }
-                    console.log(`源 Key: ${key}, 被翻译为: ${dst}`);
+                    console.log(`源Key: ${key}, 被翻译为: ${dst}`);
                     translations.push([key, dst]);
                     cache[key] = dst;
                 }
@@ -51,7 +51,7 @@ function ChatGPT_Translator(options) {
             .reduce((acc, [key, value]) => (Object.assign(Object.assign({}, acc), { [key]: value })), {});
         const newSource = JSON.stringify(Object.assign(Object.assign({}, orderedSourceObj), orderedTranslations), null, 2);
         index_1.fs.writeFileSync(path, newSource);
-        console.log("所有中文已翻译完成...");
+        console.log("所有语言数据已翻译完成...");
     });
 }
 exports.ChatGPT_Translator = ChatGPT_Translator;

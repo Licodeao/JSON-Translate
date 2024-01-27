@@ -85,11 +85,11 @@ function BaiduTranslator(options) {
                     }
                     [dst] = res.data.trans_result || [];
                     if (!dst) {
-                        console.log(`当前中文字符：${key}为undefined, 重新翻译中...`);
+                        console.log(`当前字符：${key} 为undefined, 重新翻译中...`);
                         yield new Promise((resolve) => setTimeout(resolve, timeout));
                     }
                 }
-                console.log(key, dst);
+                console.log(`源Key: ${key}, 被翻译为: ${dst}`);
                 translations.push([key, dst.dst]);
                 cache[key] = dst.dst;
             }
@@ -100,7 +100,7 @@ function BaiduTranslator(options) {
             .reduce((acc, [key, value]) => (Object.assign(Object.assign({}, acc), { [key]: value })), {});
         const newSource = JSON.stringify(Object.assign(Object.assign({}, orderedSourceObj), orderedTranslations), null, 2);
         index_1.fs.writeFileSync(path, newSource);
-        console.log("所有中文已翻译完成...");
+        console.log("所有语言数据已翻译完成...");
     });
 }
 exports.BaiduTranslator = BaiduTranslator;

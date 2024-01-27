@@ -6,7 +6,6 @@ export async function ChatGPT_Translator(options: ChatGPTOptions) {
   const { sourceLang, targetLang, path, API_Key } = options;
 
   const openai = new OpenAI({
-    baseURL: "https://one.aiskt.com/v1",
     apiKey: API_Key,
   });
 
