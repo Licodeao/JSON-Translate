@@ -1,6 +1,6 @@
 # i18n-json-translate
 
-<p align="center">English | <a href="./READNE_zh.md">简体中文</a></p>
+<p align="center">English | <a href="./README_zh.md">简体中文</a></p>
 
 A tool for improving international translation efficiency, supports translation into any language you want.
 
@@ -44,4 +44,3 @@ For use in the following scenarios：
 | Node Version |
 | ------------ |
 | >= v16.0.0   |
-

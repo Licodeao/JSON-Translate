@@ -1,6 +1,6 @@
 # i18n-json-translate
 
-<p align="center"><a href="./READNE.md">English</a> | 简体中文</p>
+<p align="center"><a href="./README.md">English</a> | 简体中文</p>
 
 提升国际化翻译效率，支持翻译为任意你想要的语言。
 
@@ -37,7 +37,7 @@ $ json-translate
 | ---------- | -------------------------------------- |
 | 百度翻译   | 需注册百度翻译账号，并依据开发者文档   |
 | 有道云翻译 | 需注册有道云翻译账号，并依据开发者文档 |
-| ChatGPT    | 需提供API Key                          |
+| ChatGPT    | 需提供 API Key                         |
 
 ## 📌 提示
 
