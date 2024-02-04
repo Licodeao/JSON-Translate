@@ -15,7 +15,7 @@ A tool for improving international translation efficiency, supports translation 
 $ npm install i18n-json-translate
 
 # yarn
-$ yarn install i18n-json-translate
+$ yarn add i18n-json-translate
 
 # Usage
 $ json-translate
