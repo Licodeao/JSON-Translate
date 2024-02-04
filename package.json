@@ -1,6 +1,6 @@
 {
   "name": "i18n-json-translate",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "A tool for translating JSON files in i18n",
   "keywords": [
     "i18n",

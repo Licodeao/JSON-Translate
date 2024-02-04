@@ -14,6 +14,9 @@
 # npm
 $ npm install i18n-json-translate
 
+# yarn
+$ yarn install i18n-json-translate
+
 # Usage
 $ json-translate
 ```
