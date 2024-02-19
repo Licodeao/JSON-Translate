@@ -1,6 +1,6 @@
 {
   "name": "i18n-json-translate",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "description": "A tool for translating JSON files in i18n",
   "keywords": [
     "i18n",
@@ -15,7 +15,10 @@
     "json-translate": "cli.js"
   },
   "author": "Licodeao <Licodeao@licodeao.top>",
-  "license": "ISC",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "type": "commonjs",
   "devDependencies": {
     "@types/node": "^20.3.2"
