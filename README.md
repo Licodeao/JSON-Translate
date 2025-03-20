@@ -4,9 +4,9 @@
 
 A tool for improving international translation efficiency, supports translation into any language you want.
 
-<img src="https://typora-licodeao.oss-cn-guangzhou.aliyuncs.com/typoraImg/%E6%9C%AA%E5%91%BD%E5%90%8D%206.png" width="100%" />
+<img src="/src/image/img1.png" width="100%" />
 
-<img src="https://typora-licodeao.oss-cn-guangzhou.aliyuncs.com/typoraImg/%E6%9C%AA%E5%91%BD%E5%90%8D%207.png" width="100%" />
+<img src="/src/image/img2.png" width="100%" />
 
 ## 📦 Installation
 
